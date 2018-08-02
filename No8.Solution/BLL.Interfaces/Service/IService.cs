@@ -1,4 +1,6 @@
-﻿namespace No8.Solution.BLL.Interfaces.Service
+﻿using System.Collections.Generic;
+
+namespace No8.Solution.BLL.Interfaces.Service
 {
     /*Абстракция для сервиса*/
     public interface IService
@@ -10,5 +12,7 @@
         void Print(string name, string model);
 
         Printer.Printer GetByNameAndModel(string name, string model);
+
+        IEnumerable<Printer.Printer> GetPrinters();
     }
 }

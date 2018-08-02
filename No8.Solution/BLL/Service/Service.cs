@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Windows.Forms;
 using No8.Solution.BLL.Interfaces.Printer;
@@ -56,11 +57,18 @@ namespace No8.Solution.BLL.Service
             return _repository.GetByNameAndModel(name, model);
         }
 
+        public IEnumerable<Printer> GetPrinters()
+        {
+            return _repository.GetPrinters();
+        }
+
         protected virtual void OnPrinted(object sender, PrintEventArgs eventArgs)
         {
             EventHandler<PrintEventArgs> tmp = Printed;
             tmp?.Invoke(this, eventArgs);
         }
+
+
 
         private static void Print(Printer printer)
         {
